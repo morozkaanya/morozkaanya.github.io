@@ -16,23 +16,29 @@
           transition: all 0.5s ease;
 }
 .shadow-text:hover{
- face: Arial;
+ face: Impact;
   font-size: 3em; /* Размер  текста */
   color: #ffa000; /* Меняем цвет текста */
-  -webkit-text-shadow: 2px 2px 2px #000;
-  -moz-text-shadow: 2px 2px 2px #000;
-      text-shadow: 2px 2px 2px #000;
+}
+.textc:{
+ color:#FFFFFF";
+ text-shadow:none;
 }
      
  </style>
  </head>
  <body>
-  
-  <p class="shadow-text" onclick style="color:#FFFFFF" text-shadow:none>Анна
+  <h1> Вариант для исчезновения по нажатию: </h1>
+<p class="shadow-text" onclick="style.color='#FFFFFF';">Анна
       <br>
-      Начинающий web-программист / Junior Frontend Developer
-  
-  </p>
- 
+      Начинающий web-программист / Junior Frontend Developer  
+</p>
+  <h1> Вариант для удаления пробелом: </h1>
+<p class="shadow-text" onclick="p.remove">Анна
+      <br>
+      Начинающий web-программист / Junior Frontend Developer  
+</p>
+
  </body>
 </html>
+
