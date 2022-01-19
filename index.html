@@ -1,14 +1,26 @@
- <!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
- <head>
+  <head>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(document).keydown(function(e) {
+          if (e.keyCode == '32') {
+            
+			var el = document.getElementById('div-02');
+            el.remove(); 
+          }
+        });
+      });
+    </script>
   <meta charset="utf-8">
-  <title>Цвет ссылок</title>
+  <title>Анна Курова</title>
   <style>
  
 .shadow-text{
-  color: #f66d52; /* Цвет  текста */
-  font-size: 2em; /* Размер  текста */
+  color: #FF1493; 
+  font-size: 2em; 
+  font-size: 2em; 
   font-weight: bold;
   padding: 20px 0px;
   text-transform: uppercase;
@@ -19,35 +31,24 @@
 .shadow-text:hover{
  face: Impact;
   font-size: 3em; /* Размер  текста */
-  color: #ffa000; /* Меняем цвет текста */
+  color: #004524; /* Меняем цвет текста */
 }
-.textc:{
- color:#FFFFFF";
- text-shadow:none;
-}
+
      
  </style>
  </head>
  <body>
-   
-   <script type="text/javascript">
-$(window).keypress(function(e) {
-  if (e.keyCode == 0 || e.keyCode == 32) {
-    console.log('Space pressed');
-  }
-});
-  </script>
+
   <h1> Вариант для исчезновения по нажатию: </h1>
 <p class="shadow-text" onclick="style.color='#FFFFFF';">Анна
       <br>
       Начинающий web-программист / Junior Frontend Developer  
 </p>
   <h1> Вариант для удаления пробелом: </h1>
-<p class="shadow-text" onclick="p.remove">Анна
+<div id="div-02"><p class="shadow-text" onclick="p.remove">Анна
       <br>
       Начинающий web-программист / Junior Frontend Developer  
-</p>
+</p></div>
 
  </body>
 </html>
-
