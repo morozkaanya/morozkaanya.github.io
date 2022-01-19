@@ -1,6 +1,7 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
   <meta charset="utf-8">
   <title>Цвет ссылок</title>
   <style>
@@ -28,6 +29,14 @@
  </style>
  </head>
  <body>
+   
+   <script type="text/javascript">
+$(window).keypress(function(e) {
+  if (e.keyCode == 0 || e.keyCode == 32) {
+    console.log('Space pressed');
+  }
+});
+  </script>
   <h1> Вариант для исчезновения по нажатию: </h1>
 <p class="shadow-text" onclick="style.color='#FFFFFF';">Анна
       <br>
