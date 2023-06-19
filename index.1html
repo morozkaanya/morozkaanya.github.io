@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(document).keydown(function(e) {
+          if (e.keyCode == '32') {
+            
+			var el = document.getElementById('div-02');
+            el.remove(); 
+          }
+        });
+      });
+    </script>
+  <meta charset="utf-8">
+  <title>Анна Курова</title>
+  <style>
+ 
+.shadow-text{
+  color: #FF1493; 
+  font-size: 2em; 
+  font-size: 2em; 
+  font-weight: bold;
+  padding: 20px 0px;
+  text-transform: uppercase;
+  line-height: 1;
+  -webkit-transition: all 0.5s ease;
+          transition: all 0.5s ease;
+}
+.shadow-text:hover{
+ face: Impact;
+  font-size: 3em; /* Размер  текста */
+  color: #004524; /* Меняем цвет текста */
+}
+
+     
+ </style>
+ </head>
+ <body>
+
+  <h1> Вариант для исчезновения по нажатию: </h1>
+<p class="shadow-text" onclick="style.color='#FFFFFF';">Анна
+      <br>
+      Начинающий web-программист / Junior Frontend Developer  
+</p>
+  <h1> Вариант для удаления пробелом: </h1>
+<div id="div-02"><p class="shadow-text" onclick="p.remove">Анна
+      <br>
+      Начинающий web-программист / Junior Frontend Developer  
+</p></div>
+
+ </body>
+</html>
