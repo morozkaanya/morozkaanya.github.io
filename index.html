@@ -1,10 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
-
+ <!doctype html>
 <html>
 <head>
 
 
-
+<base href="http://www.gsras.ru/unu/">
 <link rel="StyleSheet" href="templates/gsras/style/style.css" type="text/css" media="screen">
 <link rel="StyleSheet" href="scripts/syntaxhighlighter/styles/shCoreDefault.css" type="text/css" >
 <link rel="StyleSheet" href="scripts/colorbox/example3/colorbox.css" type="text/css" >
@@ -155,6 +154,36 @@ submit.disabled = '';
 else
 submit.disabled = 'disabled';
 }
+	
+function alerted(){
+if ((document.getElementById('fiz').checked == false) && (document.getElementById('yur').checked == false))
+alert("Не указан тип заказчика");
+else
+if ((document.getElementById('yur').checked == true) && (document.contact_form.organization.value == ""))
+alert("Не указано название организации");
+else
+if (document.contact_form.surname.value == "")
+alert("Не указана фамилия");
+else
+if (document.contact_form.name.value == "")
+alert("Не указано имя");
+else
+if (document.contact_form.email.value == "")
+alert("Не указана электронная почта");
+else
+if (document.contact_form.phone.value == "")
+alert("Не указан контактный телефон");
+else
+if (document.contact_form.region.value == "")
+alert("Не указан интересуемый район");
+else
+if (document.contact_form.starttime.value == "")
+alert("Не указано начало временнго интервала");
+else
+alert("Форма успешно отправлена!");
+
+}
+
 
 </script>
 
@@ -173,10 +202,13 @@ submit.disabled = 'disabled';
 	<div id="errors"></div>
 <div class="header">
 
-
+<div class="logo_image"><a href="http://www.gsras.ru"><img src="images/GS-logo.jpg" alt="ФИЦ ЕГС РАН" title="ФИЦ ЕГС РАН"></a>
+	<div style="text-align: center; position: relative; top: -35px; left: -97px; /*width: 300px;*/">
+<a style="font-size:20px; font-style: bold; color: yellow; text-decoration: none;" href="http://www.gsras.ru/unu/" alt="УНИКАЛЬНАЯ НАУЧНАЯ УСТАНОВКА ФИЦ ЕГС РАН" title="УНИКАЛЬНАЯ НАУЧНАЯ УСТАНОВКА ФИЦ ЕГС РАН">УНИКАЛЬНАЯ НАУЧНАЯ УСТАНОВКА ФИЦ ЕГС РАН</a></div>
+</div>
 <!--	<div class="user_block">
 		
-		<form action="index.php" method="post">
+		<form action="index.php?name=user&op=login" method="post">
 			<table align="center">
 				<tr>
 					<td colspan="2" align="left"><span style="font-weight: bold;">Вход для пользователей</span></td>
@@ -218,8 +250,8 @@ submit.disabled = 'disabled';
 				<div class="box">
 	
 	<div class="boxtd">
-		
-<form action="index.php" method="POST">
+	<form name="contact_form" method="POST">	
+<!--<form action="index.php" method="POST">--->
 <table cellspacing="5" cellpadding="5" border="0" align="center" width="90%">
 	<tr>
 		<th colspan="2" class="formtitle">Предоставление справки о землетрясениях</th>
@@ -233,8 +265,8 @@ submit.disabled = 'disabled';
 	</tr>
 	
 	<tr>
-		<td class="forms_hname">Заказчик</td>
-		<td style="padding-top: 2px;"><table cellspacing="0" cellpadding="0" align="center"><tr><td nowrap class="rightc"><input type="radio" name="agree" value="1">Физическое лицо</td></tr><tr><td nowrap class="rightc"><input type="radio" name="agree" value="0">Юридическое лицо</td></tr></tr></table></td>
+		<td class="forms_hname">Заказчик<sup>*</sup></td>
+		<td style="padding-top: 2px;"><table cellspacing="0" cellpadding="0" align="center"><tr><td nowrap class="rightc"><input type="radio" name="agree" id="fiz">Физическое лицо</td></tr><tr><td nowrap class="rightc"><input type="radio" name="agree" id="yur">Юридическое лицо</td></tr></tr></table></td>
 	</tr>
 	
 	<tr>
@@ -243,15 +275,15 @@ submit.disabled = 'disabled';
 	</tr>
 	
 	<tr>
-		<td class="forms_hname">Должность (для юр. лица</td>
+		<td class="forms_hname">Должность (для юр. лица)</td>
 		<td style="padding-top: 2px;"><input type="text" name="position" maxlength="50" style=" width:600px;"></td>
 	</tr>
 	<tr>
-		<td class="forms_hname">Фамилия</td>
+		<td class="forms_hname">Фамилия<sup>*</sup></td>
 		<td style="padding-top: 2px;"><input type="text" name="surname" maxlength="255" style=" width:600px;"></td>
 	</tr>
 	<tr>
-		<td class="forms_hname">Имя</td>
+		<td class="forms_hname">Имя<sup>*</sup></td>
 		<td style="padding-top: 2px;"><input type="text" name="name" maxlength="100" style=" width:600px;"></td>
 	</tr>
 	
@@ -260,11 +292,11 @@ submit.disabled = 'disabled';
 		<td style="padding-top: 2px;"><input type="text" name="middlename" maxlength="255" style=" width:600px;"></td>
 	</tr>
 		<tr>
-		<td class="forms_hname">Адрес электронной почты</td>
-		<td style="padding-top: 2px;"><input type="text" name="e-mail" maxlength="255" style=" width:600px;"></td>
+		<td class="forms_hname">Адрес электронной почты<sup>*</sup></td>
+		<td style="padding-top: 2px;"><input type="text" name="email" maxlength="255" style=" width:600px;"></td>
 	</tr>
 		<tr>
-		<td class="forms_hname">Контактный телефон</td>
+		<td class="forms_hname">Контактный телефон<sup>*</sup></td>
 		<td style="padding-top: 2px;"><input type="text" name="phone" maxlength="255" style=" width:600px;"></td>
 	</tr>
 		<tr>
@@ -272,26 +304,43 @@ submit.disabled = 'disabled';
 		<td style="padding-top: 2px;"><input type="text" name="adress" maxlength="255" style=" width:600px;"></td>
 	</tr>
 		<tr>
-		<td class="forms_hname">Интересуемый район (название населенного пункта или адрес, которые будут указаны в документе)</td>
+		<td class="forms_hname">Интересуемый район<sup>*</sup> (название населенного пункта или адрес, которые будут указаны в документе)</td>
 		<td style="padding-top: 2px;"><input type="text" name="region" maxlength="255" style=" width:600px;"></td>
 	</tr>
 			<tr>
-		<td class="forms_hname">Временной интервал начала(дата в формате ГГГГ.ММ.ДД)</td>
+		<td class="forms_hname">Временной интервал начала<sup>*</sup> (ГГГГ.ММ.ДД)</td>
 		<td style="padding-top: 2px;"><input type="text" name="starttime" maxlength="255" style=" width:600px;"></td>
 	</tr>
 			<tr>
-		<td class="forms_hname">Временной интервал конца(дата в формате ГГГГ.ММ.ДД)</td>
-		<td style="padding-top: 2px;"><input type="text" name="edntime" maxlength="255" style=" width:600px;"></td>
+		<td class="forms_hname">Временной интервал конца<sup>*</sup> (ГГГГ.ММ.ДД)</td>
+		<td style="padding-top: 2px;"><input type="text" name="endtime" maxlength="255" style=" width:600px;"></td>
 	</tr>
 			<tr>
 		<td class="forms_hname">Дополнительная информация</td>
 		<td style="padding-top: 2px;"><input type="text" name="info" maxlength="255" style=" width:600px;"></td>
 	</tr>
-	
-	
-	
 
-	
+
+	<!--
+	<tr>
+		<td class="forms_hname">
+			<table>
+				<tr>
+					<td>Введите код с картинки:</td>
+				</tr>
+				<tr>
+					<td><img src="index.php?name=plugins&p=antibot" height="40" width="120" id="codeimage"></td>
+				</tr>
+				<tr>
+					<td><a href="#" onclick="document.getElementById('codeimage').src = 'index.php?name=plugins&p=antibot&amp;time=' + Date(); return false;">Показать другую</a></td>
+				</tr>
+			</table>
+		</td>
+		<td>
+			<input type="text" name="keystr" style="width: 120px;">
+		</td>			
+	</tr>
+	-->
 	
 	<tr><td colspan="2" class="forms_end">&nbsp;</td></tr>
 	<tr><td align="right"><input type="checkbox" id="politics" onclick="check();" value="" autocomplete="off" /></td>
@@ -302,7 +351,7 @@ submit.disabled = 'disabled';
 	<tr><td colspan="2" class="forms_end">&nbsp;</td></tr>
 	<tr>
 		<td></td>
-		<td class="forms_submit"><input type="submit" name="submit" class="submit" disabled="" value="Отправить форму" align="middle"></td>
+		<td class="forms_submit"><input type="submit" name="submit" class="submit" onclick="alerted();" disabled="" value="Отправить форму" align="middle"></td>
 	</tr>
 </table>
 </form>
