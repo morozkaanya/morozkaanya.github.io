@@ -1,348 +1,947 @@
- <!doctype html>
-<html>
+<!doctype html>
+<html lang="ru" class="no-js">
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#12040f">
+  <meta name="color-scheme" content="dark">
+  <title>30 & FABULOUS · Главная вечеринка года · 12 декабря</title>
+  <meta name="description" content="Официальное приглашение на празднование 30-летия! 12 декабря 2026, Калуга. Dress-code, программа, таймлайн, секретные детали и RSVP.">
+  <meta property="og:title" content="30 & FABULOUS · Главная вечеринка года">
+  <meta property="og:description" content="Листай приглашение: программа, дресс-код, таймлайн и подтверждение присутствия. Будет легендарно! ✨">
+  <meta property="og:image" content="img/girls-party.webp">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ff5eab'/%3E%3Cstop offset='100%25' stop-color='%23b11566'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='28' fill='url(%23g)'/%3E%3Ctext x='50' y='67' font-size='46' text-anchor='middle' font-family='Georgia,serif' font-weight='bold' fill='white'%3E30%3C/text%3E%3C/svg%3E">
 
+  <!-- Google Fonts: Syne + Unbounded + Playfair Display + Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700&family=Syne:wght@700;800;900&family=Unbounded:wght@600;800;900&display=swap" rel="stylesheet">
 
-
-<link rel="StyleSheet" href="templates/gsras/style/style.css" type="text/css" media="screen">
-<link rel="StyleSheet" href="scripts/syntaxhighlighter/styles/shCoreDefault.css" type="text/css" >
-<link rel="StyleSheet" href="scripts/colorbox/example3/colorbox.css" type="text/css" >
-<script src="scripts/jquery/jquery.js" type="text/javascript"></script>
-<script src="scripts/colorbox/jquery.colorbox.js" type="text/javascript" charset="utf-8"></script>
-<script src="scripts/syntaxhighlighter/SyntaxHighlighter.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript">
-
-jQuery(function($){		
-		SyntaxHighlighter.config.strings.expandSource = 'Показать код';
-		SyntaxHighlighter.all();
-$(".colorbox").colorbox({rel: "colorbox_group", maxWidth: "100%", maxHeight: "100%"});
-
-
-	if($("#errors").html() != "") $("#errors").show();
-});
-
-
-/*
- * LinkorCMS 1.4
- * © 2012 LinkorCMS Development Group
- */
-
-
-function ShowHide(id)
-{
-	ddp = document.getElementById(id);
-	if(ddp.style.visibility == "hidden"){
-		ddp.style.display = "block";
-		ddp.style.visibility = "visible";
-	}else{
-		ddp.style.display = "none";
-		ddp.style.visibility = "hidden";
-	}
-}
-
-function smilies(id_name, code){
-	var text = document.getElementById(id_name);
-	if(!text){
-		return;
-	}
-	if(document.selection){
-		text.focus();
-		var sel = document.selection.createRange();
-		sel.text = code;
-	}else if(text.selectionStart || text.selectionStart=="0"){
-		var start = text.selectionStart;
-		var end = text.selectionEnd;
-		var scrollTop = text.scrollTop;
-		var scrollLeft = text.scrollLeft;
-		text.value = text.value.substring(0,start) + code + text.value.substring(end, text.value.length);
-		text.selectionStart = start + code.length;
-		text.selectionEnd = text.selectionStart;
-		text.scrollTop = scrollTop;
-		text.scrollLeft = scrollLeft;
-		text.focus();
-	}else{
-		text.value += smile;
-	}
-	text.focus();
-}
-
-function validate_email (email) {
-    return /[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-z]{2,7}/i.test(email);
-}
-
-function check_email(email){
-    if(!validate_email(email.value)){
-		alert('Пожалуйста, укажите действительный адрес контактного Email.');
-		return false;
-	}
-	return true;
-}
-
-function check_form(f){
-    if(f.name.value != '' && f.email.value != '' && validate_email(f.email.value) && f.subject.value != '' && f.message.value != '' && f.department.value != '0'){
-        return true;
-    }else if(f.name.value == ''){
-    	alert('Пожалуйста, укажите Ваше имя!');
-    	return false;
-    }else if(f.email.value == '' || !validate_email(f.email.value)){
-        alert('Пожалуйста, укажите Ваш действительный адрес E-mail!');
-        return false;
-    }else if(f.subject.value == ''){
-    	alert('Пожалуйста, введите тему сообщения!');
-    	return false;
-    }else if(f.message.value == ''){
-    	alert('Пожалуйста, введите сообщение!');
-    	return false;
-    }else if(f.department.value == '0'){
-    	alert('Пожалуйста, выберите департамент!');
-    	return false;
-    }else{
-        return false;
-    }
-}
-
-var temp_form_container = null;
-
-function post_reply(container)
-{
-	var form_container = document.getElementById(container);
-	var post_form = document.getElementById('postform');
-
-
-	post_form.parentNode.removeChild(post_form);
-	form_container.appendChild(post_form);
-
-	if(temp_form_container != null){
-		ddp = document.getElementById(temp_form_container);
-		if(temp_form_container != container && form_container.style.visibility != ddp.style.visibility){
-			ShowHide(temp_form_container);
-		}
-	}
-	ShowHide(container);
-	temp_form_container = container;
-
-	document.getElementById('postform_parent_id').value = container;
-
-	return false;
-}
-
-function CheckFormComment(f) {
-	if(f.user_name.value == "" ){
-		alert('Не указано имя!');
-		return false;
-	}
-	if(f.user_email.value == ""){
-		alert('Не указан e-mail!');
-		return false;
-	}
-	if(f.post_text.value ==""){
-		alert('Сообщение слишком короткое!');
-		return false;
-	}
-	if(!check_email(f.user_email)){
-		return false;
-	}
-	return true;
-}
-
-
-function check() {
-var submit = document.getElementsByName('submit')[0];
-if (document.getElementById('politics').checked) 
-if (document.getElementById('approval').checked)
-submit.disabled = '';
-else
-submit.disabled = 'disabled';
-}
-	
-function alerted(){
-if ((document.getElementById('fiz').checked == false) && (document.getElementById('yur').checked == false))
-alert("Не указан тип заказчика");
-else
-if ((document.getElementById('yur').checked == true) && (document.contact_form.organization.value == ""))
-alert("Не указано название организации");
-else
-if (document.contact_form.surname.value == "")
-alert("Не указана фамилия");
-else
-if (document.contact_form.name.value == "")
-alert("Не указано имя");
-else
-if (document.contact_form.email.value == "")
-alert("Не указана электронная почта");
-else
-if (document.contact_form.phone.value == "")
-alert("Не указан контактный телефон");
-else
-if (document.contact_form.region.value == "")
-alert("Не указан интересуемый район");
-else
-if (document.contact_form.starttime.value == "")
-alert("Не указано начало временнго интервала");
-else
-alert("Форма успешно отправлена!");
-
-}
-
-
-</script>
-
-<title>Предоставление справки о землетрясениях</title>
-<meta http-equiv="content-type" content="text/html; charset=windows-1251">
-<meta name="rating" content="general">
-<meta name="robots" content="all">
-<meta name="generator" content="LinkorCMS 1.4.1">
-<meta name="revisit-after" content="7 days">
-<link rel="shortcut icon" href="images/favicon.ico">
-
-
+  <link rel="preload" as="image" href="img/girls-party.webp" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.remove('no-js'); document.documentElement.classList.add('js');</script>
 </head>
+<body class="page-body">
 
-<body>
-	<div id="errors"></div>
-<div class="header">
+  <!-- Canvas для WebGL / 2D динамических искр и шейдеров -->
+  <canvas id="bgCanvas" class="bg-canvas" aria-hidden="true"></canvas>
 
+  <!-- Полоса прогресса чтения страницы -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"><span id="scrollProgressFill"></span></div>
 
+  <!-- Интерактивный кастомный курсор (только десктоп) -->
+  <div class="custom-cursor" id="cursor" aria-hidden="true">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+    <div class="cursor-label" id="cursorLabel">✨</div>
+  </div>
 
-</div>
-<div class="clear"></div>
-<div class="clear"></div>
-</div>
+  <!-- Верхняя панель управления и навигация -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-container">
+      <a href="#hero" class="brand" aria-label="30 & Fabulous">
+        <span class="brand-badge">30</span>
+        <span class="brand-text">
+          <strong class="brand-title">30 &amp; FABULOUS</strong>
+          <small class="brand-sub">THE ICONIC ISSUE · 12 ДЕКАБРЯ</small>
+        </span>
+      </a>
 
-<div class="breadcrumbs"></div>
-	<div class="container">
-		<div class="content">
-			<div class="text">
-				
-				<div class="box">
-	
-	<div class="boxtd">
-	
+      <nav class="nav-pill" aria-label="Основная навигация">
+        <a href="#about" class="nav-link">История</a>
+        <a href="#program" class="nav-link">Программа</a>
+        <a href="#dresscode" class="nav-link">Дресс-код</a>
+        <a href="#timeline" class="nav-link">Тайминг</a>
+        <a href="#wishlist" class="nav-link">Вишлист</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
 
-<table cellspacing="5" cellpadding="5" border="0" align="center" width="90%">
-	<tr>
-		<th colspan="2" class="formtitle">Предоставление справки о землетрясениях</th>
-	</tr>
-	
-	<tr>
-		<td colspan="2" class="formsdesc read_font"><p>Справка является официальным документом, подтверждающим факт землетрясения с указанием уровня оказанного сейсмического воздействия на здание или сооружение. Документ может использоваться для предъявления в страховые компании для подтверждения страхового случая – землетрясения, которое могло оказать негативное воздействие (повреждение, разрушение) на объект страхования. Справка содержит информацию о точном времени землетрясений, координатах очагов, магнитуде, интенсивности в баллах по шкале MSK-64 (фактическую при наличии макросейсмических данных или расчетную при их отсутствии) в интересуемом районе в указанном диапазоне дат (не более 7 дней). Справка также содержит описание типичных повреждений зданий и сооружений, характерных для указанной интенсивности.
-<br><br>Форма предоставления: на бумажном носителе и/или в электронном виде (сканированный документ с цифровой подписью).
-<br>Стоимость предоставления справки для физических лиц – <b>500 руб.</b> для юридических лиц – <b>1000 руб.</b>
-</p></td>
-	</tr>
-	
-	<tr>
-		<td class="forms_hname">Заказчик<sup>*</sup></td>
-		<td style="padding-top: 2px;"><table cellspacing="0" cellpadding="0" align="center"><tr><td nowrap class="rightc"><input type="radio" name="agree" id="fiz">Физическое лицо</td></tr><tr><td nowrap class="rightc"><input type="radio" name="agree" id="yur">Юридическое лицо</td></tr></tr></table></td>
-	</tr>
-	
-	<tr>
-		<td class="forms_hname">Название организации (для юр.лица)</td>
-		<td style="padding-top: 2px;"><input type="text" name="organization" style=" width:600px;"></td>
-	</tr>
-	
-	<tr>
-		<td class="forms_hname">Должность (для юр. лица)</td>
-		<td style="padding-top: 2px;"><input type="text" name="position" maxlength="50" style=" width:600px;"></td>
-	</tr>
-	<tr>
-		<td class="forms_hname">Фамилия<sup>*</sup></td>
-		<td style="padding-top: 2px;"><input type="text" name="surname" maxlength="255" style=" width:600px;"></td>
-	</tr>
-	<tr>
-		<td class="forms_hname">Имя<sup>*</sup></td>
-		<td style="padding-top: 2px;"><input type="text" name="name" maxlength="100" style=" width:600px;"></td>
-	</tr>
-	
-	<tr>
-		<td class="forms_hname">Отчество (при наличии)</td>
-		<td style="padding-top: 2px;"><input type="text" name="middlename" maxlength="255" style=" width:600px;"></td>
-	</tr>
-		<tr>
-		<td class="forms_hname">Адрес электронной почты<sup>*</sup></td>
-		<td style="padding-top: 2px;"><input type="text" name="email" maxlength="255" style=" width:600px;"></td>
-	</tr>
-		<tr>
-		<td class="forms_hname">Контактный телефон<sup>*</sup></td>
-		<td style="padding-top: 2px;"><input type="text" name="phone" maxlength="255" style=" width:600px;"></td>
-	</tr>
-		<tr>
-		<td class="forms_hname">Почтовый адрес для отправки документов (при необходимости получения на бумажном носителе)</td>
-		<td style="padding-top: 2px;"><input type="text" name="adress" maxlength="255" style=" width:600px;"></td>
-	</tr>
-		<tr>
-		<td class="forms_hname">Интересуемый район<sup>*</sup> (название населенного пункта или адрес, которые будут указаны в документе)</td>
-		<td style="padding-top: 2px;"><input type="text" name="region" maxlength="255" style=" width:600px;"></td>
-	</tr>
-			<tr>
-		<td class="forms_hname">Временной интервал начала<sup>*</sup> (ГГГГ.ММ.ДД)</td>
-		<td style="padding-top: 2px;"><input type="text" name="starttime" maxlength="255" style=" width:600px;"></td>
-	</tr>
-			<tr>
-		<td class="forms_hname">Временной интервал конца<sup>*</sup> (ГГГГ.ММ.ДД)</td>
-		<td style="padding-top: 2px;"><input type="text" name="endtime" maxlength="255" style=" width:600px;"></td>
-	</tr>
-			<tr>
-		<td class="forms_hname">Дополнительная информация</td>
-		<td style="padding-top: 2px;"><input type="text" name="info" maxlength="255" style=" width:600px;"></td>
-	</tr>
+      <div class="header-actions">
+        <!-- Кнопка включения фонового саундтрека / атмосферы -->
+        <button type="button" class="btn-audio" id="audioToggle" aria-label="Включить праздничные звуки" title="Праздничный звук">
+          <span class="audio-bars" aria-hidden="true">
+            <i></i><i></i><i></i><i></i>
+          </span>
+          <span class="audio-text">Звук</span>
+        </button>
 
+        <a href="#rsvp" class="btn-header-rsvp">
+          <span>Я иду!</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
 
+        <!-- Кнопка мобильного меню -->
+        <button type="button" class="burger-btn" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-	
-	<tr><td colspan="2" class="forms_end">&nbsp;</td></tr>
-	<tr><td align="right"><input type="checkbox" id="politics" onclick="check();" value="" autocomplete="off" /></td>
-<td>Нажимая на кнопку "Отправить форму", соглашаюсь с условиями <a href="ссылка на страницу согласия"> Публичной оферты </a>на оказание услуг по представлению информации о землетрясениях.</td></tr>
-<tr><td align="right"><input type="checkbox" id="approval" onclick="check();" value="" autocomplete="off" /></td>
-<td>Нажимая на кнопку "Отправить форму", я даю <a href="ссылка на страницу согласия"> согласие на обработку персональных данных.</a></td></tr>
+  <!-- Мобильное меню оверлей -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <div class="mobile-menu-top">
+        <span class="mobile-badge">30 YEARS</span>
+        <button type="button" class="close-menu-btn" id="closeMenuBtn" aria-label="Закрыть меню">✕</button>
+      </div>
+      <nav class="mobile-links">
+        <a href="#hero" class="mobile-nav-link">Главная</a>
+        <a href="#about" class="mobile-nav-link">Особенный день</a>
+        <a href="#program" class="mobile-nav-link">Программа торжества</a>
+        <a href="#dresscode" class="mobile-nav-link">Гламурный дресс-код</a>
+        <a href="#timeline" class="mobile-nav-link">Тайминг и детали</a>
+        <a href="#wishlist" class="mobile-nav-link">Идеи для подарков</a>
+        <a href="#faq" class="mobile-nav-link">Частые вопросы</a>
+        <a href="#rsvp" class="mobile-nav-link cta-link">Подтвердить присутствие ✨</a>
+      </nav>
+      <div class="mobile-menu-footer">
+        <p>12 ДЕКАБРЯ 2026 · КАЛУГА</p>
+        <small>Главный день рождения твоей любимой девочки</small>
+      </div>
+    </div>
+  </div>
 
-	<tr><td colspan="2" class="forms_end">&nbsp;</td></tr>
-	<tr>
-		<td></td>
-		<td class="forms_submit"><input type="submit" name="submit" class="submit" onclick="alerted();" disabled="" value="Отправить форму" align="middle"></td>
-	</tr>
-</table>
-</form>
+  <main id="mainContent">
 
+    <!-- ========================================================
+         HERO SECTION: Крупная типографика, 3D-тилт фото, бэйджи, бегущие строки
+         ======================================================== -->
+    <section class="hero" id="hero">
+      <div class="hero-ambient-lights" aria-hidden="true">
+        <div class="glow-orb orb-1" data-parallax="0.14"></div>
+        <div class="glow-orb orb-2" data-parallax="0.22"></div>
+        <div class="glow-orb orb-3" data-parallax="0.1"></div>
+      </div>
 
-	</div>
-</div>
-				
-			</div>
-		</div>
-		<div class="left"><table cellspacing="0" cellpadding="0" class="block_menu_table">
-<tr>
-		<td class="block_menu_table_client" align="left"><ul class="block_menu">
+      <div class="hero-container">
+        <!-- Левая колонка с текстом и CTA -->
+        <div class="hero-content" data-hero-fade>
+          <div class="hero-tag-wrap">
+            <span class="hero-pill">
+              <span class="pulse-spark" aria-hidden="true"></span>
+              VIP INVITATION · ЭКСКЛЮЗИВ
+            </span>
+            <span class="hero-date-badge">12.12.2026</span>
+          </div>
 
-	<li><a href="certificate.html">Предоставление справки о землетрясениях</a></li>
-	<li><a href="catalog.html">Предоставление каталога сейсмических событий</a></li>
-	<li><a href="digitalrecords.html">Предоставление цифровых записей сейсмических событий</a></li>
-	<li><a href="strongearthquakes.html">Предоставление синтетических цифровых записей сильных землетрясений</a></li>
-	
-</ul></td>
-	</tr>
-</table>
-</table>
-</td>
-	</tr>
-</table></div>
-		<div class="right"></div>
-		<div class="clear"></div>
-	</div>
-<div class="info">
-	<div>
-		<table cellpadding="0" cellspacing="0" border="0" width="100%" class="info_table">
-			<tr>
+          <h1 class="hero-headline">
+            <span class="hl-sub">ГЛАВНЫЙ ВЫПУСК ГОДА</span>
+            <span class="hl-main">THIRTY <span class="amp-stylish">&amp;</span></span>
+            <span class="hl-main hl-main-2 hl-glow">FABULOUS</span>
+            <span class="hl-accent">ТРИДЦАТЬ И БЕЗУПРЕЧНА</span>
+          </h1>
 
-			<td align="center"><b><a href="http://www.gsras.ru">ФИЦ ЕГС РАН</a></b>&nbsp;&nbsp;© 2001-2023<br/>
-					<b>Адрес:</b> 249035, г. Обнинск Калужской обл., пр. Ленина, 189.<br/>
-					<b>E-mail:</b> <a href="mailto:dra@gsras.ru">dra@gsras.ru</a>, <b>Тел.:</b> +7(484)395-77-53, +7(495)912-68-72
-				</td>
-			</tr>
-		</table>
-	</div>
-</div>
+          <p class="hero-description">
+            Новая декада. Тот самый дерзкий вайб, любимые девочки, реки игристого, блеск пайеток и моменты, которые останутся в сердечке навсегда. Готова зажечь эту субботу?
+          </p>
+
+          <div class="hero-actions">
+            <a href="#rsvp" class="btn-primary-glow btn-hero magnetic-target">
+              <span class="btn-sparkle" aria-hidden="true">✨</span>
+              <span>Подтвердить участие</span>
+              <span class="btn-arrow" aria-hidden="true">→</span>
+            </a>
+            <button type="button" class="btn-secondary-glass magnetic-target" id="heroAddToCal">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <span>Занять дату</span>
+            </button>
+          </div>
+
+          <!-- Мета-плашки внизу hero: дата, локация, формат -->
+          <div class="hero-stats">
+            <div class="stat-card">
+              <span class="stat-label">КОГДА</span>
+              <strong class="stat-value">12 ДЕКАБРЯ</strong>
+              <small class="stat-hint">Суббота · 11:00 — 17:00</small>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+              <span class="stat-label">ГДЕ</span>
+              <strong class="stat-value">КАЛУГА</strong>
+              <small class="stat-hint">Секретная топ-локация</small>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-card">
+              <span class="stat-label">ВАЙБ</span>
+              <strong class="stat-value">CHAMPAGNE &amp; CHIC</strong>
+              <small class="stat-hint">Только свои девочки 💖</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Правая колонка с интерактивной 3D-карточкой-фотографией -->
+        <div class="hero-visual" data-hero-fade>
+          <div class="photo-card-tilt" id="heroPhotoTilt" data-tilt>
+            <div class="tilt-glare" aria-hidden="true"></div>
+            <div class="tilt-inner">
+              <div class="photo-badge-top">
+                <span class="badge-dot"></span>
+                <span>VOL. 30 · COVER GIRL</span>
+              </div>
+
+              <div class="photo-frame">
+                <img src="img/girls-party.webp" alt="Именинница с подругами празднует 30-летие с бокалами игристого" class="party-hero-img" loading="eager" fetchpriority="high" decoding="async">
+                <div class="photo-shine-overlay"></div>
+              </div>
+
+              <!-- Интерактивные стикеры поверх карточки -->
+              <div class="floating-sticker sticker-30">
+                <span class="sticker-num">30</span>
+                <span class="sticker-sub">YEARS ICONIC</span>
+              </div>
+
+              <div class="floating-sticker sticker-quote">
+                <span class="sticker-icon">🥂</span>
+                <div class="sticker-text">
+                  <strong>Girls Only Party</strong>
+                  <small>No boring people allowed</small>
+                </div>
+              </div>
+
+              <div class="floating-sticker sticker-crown">
+                <span>👑 BIRTHDAY QUEEN</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Бегущая строка (Marquee Ticker) -->
+      <div class="marquee-strip" aria-hidden="true">
+        <div class="marquee-track">
+          <span>✨ 30 &amp; FABULOUS</span>
+          <span>✦ 12 ДЕКАБРЯ 2026</span>
+          <span>🥂 РЕКИ ШАМПАНСКОГО</span>
+          <span>💖 MAIN CHARACTER ERA</span>
+          <span>✦ БЕЗУПРЕЧНЫЙ ДРЕСС-КОД</span>
+          <span>✨ ТОЛЬКО ЛЮБИМЫЕ ДЕВОЧКИ</span>
+          <span>✦ САМАЯ КРАСИВАЯ СУББОТА ГОДА</span>
+          <span>👑 30 — ЭТО НОВЫЕ ДВАДЦАТЬ</span>
+          <!-- Дублирование для бесшовности -->
+          <span>✨ 30 &amp; FABULOUS</span>
+          <span>✦ 12 ДЕКАБРЯ 2026</span>
+          <span>🥂 РЕКИ ШАМПАНСКОГО</span>
+          <span>💖 MAIN CHARACTER ERA</span>
+          <span>✦ БЕЗУПРЕЧНЫЙ ДРЕСС-КОД</span>
+          <span>✨ ТОЛЬКО ЛЮБИМЫЕ ДЕВОЧКИ</span>
+          <span>✦ САМАЯ КРАСИВАЯ СУББОТА ГОДА</span>
+          <span>👑 30 — ЭТО НОВЫЕ ДВАДЦАТЬ</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         COUNTDOWN SECTION: Таймер обратного отсчета с вау-цифрами
+         ======================================================== -->
+    <section class="countdown-section" id="countdownSection">
+      <div class="section-container">
+        <div class="countdown-card reveal-up">
+          <div class="countdown-header">
+            <span class="badge-pill">⏱ ДО ГЛАВНОГО СОБЫТИЯ ОСТАЛОСЬ</span>
+            <h2 class="countdown-title">Обратный отсчет до праздника</h2>
+            <p class="countdown-desc">Успей подготовить идеальный наряд, прическу и отличное настроение!</p>
+          </div>
+
+          <div class="countdown-grid" id="timerGrid">
+            <div class="countdown-box">
+              <div class="box-digit-wrap">
+                <span class="box-digit" id="timerDays">00</span>
+              </div>
+              <span class="box-label">ДНЕЙ</span>
+            </div>
+            <span class="box-colon">:</span>
+            <div class="countdown-box">
+              <div class="box-digit-wrap">
+                <span class="box-digit" id="timerHours">00</span>
+              </div>
+              <span class="box-label">ЧАСОВ</span>
+            </div>
+            <span class="box-colon">:</span>
+            <div class="countdown-box">
+              <div class="box-digit-wrap">
+                <span class="box-digit" id="timerMinutes">00</span>
+              </div>
+              <span class="box-label">МИНУТ</span>
+            </div>
+            <span class="box-colon">:</span>
+            <div class="countdown-box">
+              <div class="box-digit-wrap">
+                <span class="box-digit" id="timerSeconds">00</span>
+              </div>
+              <span class="box-label">СЕКУНД</span>
+            </div>
+          </div>
+
+          <div class="countdown-footer">
+            <span class="live-indicator"><i class="pulse-dot"></i> Таймер активен</span>
+            <p>Суббота, 12 декабря 2026 года, ровно в 11:00 мы начинаем творить историю!</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         ABOUT SECTION: Письмо от именинницы (Editorial Letter)
+         ======================================================== -->
+    <section class="about-section" id="about">
+      <div class="section-container">
+        <div class="editorial-letter-grid">
+          <!-- Левая колонка: акцентные карточки и цифра -->
+          <div class="letter-side reveal-left">
+            <div class="giant-year-stamp" data-parallax="0.08">
+              <span class="stamp-bg-text">30</span>
+              <div class="stamp-content">
+                <span class="stamp-small">NEW ERA UNLOCKED</span>
+                <strong class="stamp-big">Глава 30</strong>
+                <span class="stamp-badge">САМАЯ СВЕТЛАЯ И СМЕЛАЯ</span>
+              </div>
+            </div>
+
+            <div class="polaroid-card" data-parallax="0.05">
+              <div class="polaroid-pin">📍</div>
+              <div class="polaroid-photo">
+                <img src="img/girls-party.webp" alt="Воспоминания" class="polaroid-img" loading="lazy" decoding="async">
+              </div>
+              <p class="polaroid-caption">«Создавать воспоминания с теми, кто делает жизнь ярче» 💕</p>
+            </div>
+          </div>
+
+          <!-- Правая колонка: само письмо -->
+          <div class="letter-main reveal-right">
+            <div class="letter-kicker">
+              <span class="kicker-line"></span>
+              <span>ОТКРОВЕННОЕ ПОСЛАНИЕ</span>
+            </div>
+            <h2 class="letter-title">
+              Моя дорогая и&nbsp;любимая подружка!
+            </h2>
+            <div class="letter-text">
+              <p class="letter-lead">
+                Мне исполняется <strong>30 лет</strong>. Говорят, этот рубеж особенный — и я чувствую, что это лучшее время в моей жизни. Время уверенности, красоты, искренней любви к себе и тем, кто рядом.
+              </p>
+              <p>
+                Я не хочу стандартных банкетов и скучных речей. Я мечтаю собрать свой самый близкий круг — самых ярких, душевных, вдохновляющих девчонок, с которыми мы смеемся до слез, делимся секретами и проживаем самые крутые моменты.
+              </p>
+              <p>
+                Этот день я продумала до мелочей: от первого глотка просекко до красивейших кадров и душевных бесед. Ты — важная часть моей жизни, и без тебя этот праздник просто не состоится.
+              </p>
+            </div>
+
+            <div class="letter-signature-block">
+              <div class="sig-details">
+                <span class="sig-lead">С бесконечной любовью и нетерпением,</span>
+                <span class="sig-name">Твоя Именинница 💖</span>
+              </div>
+              <div class="sig-stamp">
+                <span>SEALED WITH LOVE</span>
+                <strong>100% ICONIC</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         PROGRAM SECTION: 3 Акта праздника с интерактивными карточками
+         ======================================================== -->
+    <section class="program-section" id="program">
+      <div class="section-container">
+        <div class="section-heading-wrap reveal-up">
+          <span class="badge-pill">✨ СЦЕНАРИЙ ИДЕАЛЬНОГО ДНЯ</span>
+          <h2 class="section-title">Три акта одного грандиозного праздника</h2>
+          <p class="section-subtitle">
+            Мы объединили творчество, гламурную фотосъемку и гастрономический гедонизм в один непрерывный поток удовольствия.
+          </p>
+        </div>
+
+        <div class="program-cards-grid">
+          <!-- Акт 1 -->
+          <article class="program-card card-pink reveal-up" style="--delay: 0.1s" data-parallax="0.045">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="pcard-header">
+              <span class="pcard-act">АКТ 01 · 11:00</span>
+              <span class="pcard-badge">ТВОРЧЕСТВО &amp; MAGIC</span>
+            </div>
+            <div class="pcard-visual">
+              <span class="pcard-emoji">🎨</span>
+              <div class="pcard-ring"></div>
+            </div>
+            <div class="pcard-body">
+              <h3 class="pcard-title">Эстетичный мастер-класс</h3>
+              <p class="pcard-desc">
+                Создаем уникальные вещи своими руками под любимые треки и бокал просекко. Почувствуем себя настоящими творцами и унесем с собой частичку праздника.
+              </p>
+              <ul class="pcard-perks">
+                <li>✨ Атмосферная студия с мягким светом</li>
+                <li>🥂 Игристое и легкие закуски на велкоме</li>
+                <li>🎁 Каждая создаст свой памятный артефакт</li>
+              </ul>
+            </div>
+            <div class="pcard-footer">
+              <span>Локация: Арт-пространство</span>
+              <span class="pcard-icon">✦</span>
+            </div>
+          </article>
+
+          <!-- Акт 2 -->
+          <article class="program-card card-dark reveal-up" style="--delay: 0.2s" data-parallax="0.09">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="pcard-header">
+              <span class="pcard-act">АКТ 02 · 13:30</span>
+              <span class="pcard-badge">FASHION &amp; GLAM</span>
+            </div>
+            <div class="pcard-visual">
+              <span class="pcard-emoji">📸</span>
+              <div class="pcard-ring"></div>
+            </div>
+            <div class="pcard-body">
+              <h3 class="pcard-title">Глянцевая фотосессия</h3>
+              <p class="pcard-desc">
+                Профессиональный свет, тематическая фотозона с шарами и блестками, топовый фотограф и рилсмейкер. Готовим контент для твоих соцсетей на год вперед!
+              </p>
+              <ul class="pcard-perks">
+                <li>💄 Спец-зона для поправления макияжа</li>
+                <li>💃 Индивидуальные и общие взрывные кадры</li>
+                <li>📱 Готовые трендовые рилсы в тот же вечер</li>
+              </ul>
+            </div>
+            <div class="pcard-footer">
+              <span>Локация: Фотостудия премиум-класса</span>
+              <span class="pcard-icon">★</span>
+            </div>
+          </article>
+
+          <!-- Акт 3 -->
+          <article class="program-card card-rose reveal-up" style="--delay: 0.3s" data-parallax="0.13">
+            <div class="card-glow" aria-hidden="true"></div>
+            <div class="pcard-header">
+              <span class="pcard-act">АКТ 03 · 15:30</span>
+              <span class="pcard-badge">CHEERS &amp; PARTY</span>
+            </div>
+            <div class="pcard-visual">
+              <span class="pcard-emoji">🥂</span>
+              <div class="pcard-ring"></div>
+            </div>
+            <div class="pcard-body">
+              <h3 class="pcard-title">Гастро-ужин &amp; Тосты</h3>
+              <p class="pcard-desc">
+                Перемещаемся в уютный ресторан. Авторские коктейли, изысканные блюда, праздничный торт с задуванием 30 свечей, громкий смех и самые теплые слова.
+              </p>
+              <ul class="pcard-perks">
+                <li>🎂 Торт мечты и салют из бенгальских огней</li>
+                <li>🍸 Спешл-меню и коктейльная карта</li>
+                <li>🎶 Плейлист, под который невозможно сидеть</li>
+              </ul>
+            </div>
+            <div class="pcard-footer">
+              <span>Локация: Панорамный ресторан</span>
+              <span class="pcard-icon">♥</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="program-banner reveal-up">
+          <div class="banner-icon">💌</div>
+          <div class="banner-text">
+            <strong>Все трансферы и перемещения продуманы!</strong>
+            <p>Тебе нужно только быть в отличном настроении. Точные адреса и маршрут придут в закрытый чат накануне.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         DRESS-CODE SECTION: Интерактивный генератор/палитра луков
+         ======================================================== -->
+    <section class="dresscode-section" id="dresscode">
+      <div class="section-container">
+        <div class="dresscode-wrapper">
+          <div class="dresscode-header reveal-up">
+            <span class="badge-pill">👗 FASHION GUIDE · В ЧЕМ ПРИХОДИТЬ</span>
+            <h2 class="section-title">Главный акцент — твое сияние</h2>
+            <p class="section-subtitle">
+              Мы создаем картинку как из журнала Vogue. Выбирай образ, в котором чувствуешь себя на все 100%!
+            </p>
+          </div>
+
+          <!-- Интерактивная палитра цветов -->
+          <div class="palette-grid reveal-up">
+            <div class="palette-item" data-color="hot-pink">
+              <div class="palette-swatch swatch-hot-pink">
+                <span class="swatch-check">✓</span>
+              </div>
+              <div class="palette-info">
+                <strong>Hot Fuchsia</strong>
+                <small>Дерзкая фуксия и розовый</small>
+              </div>
+            </div>
+
+            <div class="palette-item" data-color="metallic-silver">
+              <div class="palette-swatch swatch-silver">
+                <span class="swatch-check">✓</span>
+              </div>
+              <div class="palette-info">
+                <strong>Sparkle Silver</strong>
+                <small>Серебро, пайетки, глиттер</small>
+              </div>
+            </div>
+
+            <div class="palette-item" data-color="deep-wine">
+              <div class="palette-swatch swatch-wine">
+                <span class="swatch-check">✓</span>
+              </div>
+              <div class="palette-info">
+                <strong>Velvet Berry</strong>
+                <small>Глубокий винный и бордо</small>
+              </div>
+            </div>
+
+            <div class="palette-item" data-color="silk-pearl">
+              <div class="palette-swatch swatch-pearl">
+                <span class="swatch-check">✓</span>
+              </div>
+              <div class="palette-info">
+                <strong>Soft Champagne</strong>
+                <small>Жемчуг, пудра, шелк</small>
+              </div>
+            </div>
+          </div>
+
+          <!-- Лукбук-советы в карточках -->
+          <div class="style-cards-grid reveal-up">
+            <div class="style-card">
+              <div class="style-icon">✨</div>
+              <h4>Больше сияния</h4>
+              <p>Пайетки, стразы, атласные ткани и мерцающий макияж. В этот день блеска слишком много не бывает!</p>
+            </div>
+            <div class="style-card">
+              <div class="style-icon">👠</div>
+              <h4>Удобный шик</h4>
+              <p>Выбирай туфли или ботильоны, в которых тебе будет комфортно и позировать, и танцевать.</p>
+            </div>
+            <div class="style-card">
+              <div class="style-icon">🕶️</div>
+              <h4>Аксессуары</h4>
+              <p>Очки-сердечки, массивные серьги, мини-сумочки и перья — любые детали сделают кадры шедеврами.</p>
+            </div>
+          </div>
+
+          <!-- Интерактивный интерактив: кликни чтобы примерить вайб -->
+          <div class="look-generator-box reveal-up" id="lookGenerator">
+            <div class="gen-left">
+              <span class="gen-tag">ИНТЕРАКТИВНЫЙ ПОМОЩНИК</span>
+              <h3>Не знаешь, что надеть?</h3>
+              <p id="lookIdeaText">Нажми на кнопку ниже, и генератор подберет для тебя готовый стильный образ на эту вечеринку!</p>
+              <button type="button" class="btn-primary-glow btn-gen" id="genLookBtn">
+                <span>Сгенерировать идею лука 🎲</span>
+              </button>
+            </div>
+            <div class="gen-preview" id="lookPreviewBadge">
+              <div class="gen-badge-inner">
+                <span class="gen-emoji" id="genEmoji">💃</span>
+                <strong id="genTitle">Коктейльное платье в пайетках</strong>
+                <small id="genSub">Серебряные лодочки + акцентные серьги</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         TIMELINE SECTION: Интерактивный билет / таймлайн
+         ======================================================== -->
+    <section class="timeline-section" id="timeline">
+      <div class="section-container">
+        <div class="timeline-grid">
+          <!-- Левая часть: VIP-билет посадочный талон -->
+          <div class="ticket-side reveal-left">
+            <div class="boarding-pass" id="boardingPass" data-parallax="0.05">
+              <div class="pass-header">
+                <div class="pass-logo">
+                  <span class="pass-dot"></span>
+                  <span>VIP BOARDING PASS</span>
+                </div>
+                <span class="pass-class">FIRST CLASS 30</span>
+              </div>
+
+              <div class="pass-body">
+                <div class="pass-row-main">
+                  <div>
+                    <span class="pass-label">ГОСТЬ</span>
+                    <strong class="pass-val">ЛЮБИМАЯ ДЕВОЧКА</strong>
+                  </div>
+                  <div>
+                    <span class="pass-label">РЕЙС</span>
+                    <strong class="pass-val">#BDAY30</strong>
+                  </div>
+                </div>
+
+                <div class="pass-route">
+                  <div class="route-point">
+                    <span class="city-code">KLG</span>
+                    <span class="city-name">Калуга</span>
+                  </div>
+                  <div class="route-line">
+                    <span class="plane-icon">✈</span>
+                  </div>
+                  <div class="route-point">
+                    <span class="city-code">FAB</span>
+                    <span class="city-name">Fabulous 30</span>
+                  </div>
+                </div>
+
+                <div class="pass-details-grid">
+                  <div>
+                    <span class="pass-label">ДАТА</span>
+                    <strong class="pass-val">12 ДЕК 2026</strong>
+                  </div>
+                  <div>
+                    <span class="pass-label">ВРЕМЯ</span>
+                    <strong class="pass-val">11:00 — 17:00</strong>
+                  </div>
+                  <div>
+                    <span class="pass-label">МЕСТО</span>
+                    <strong class="pass-val">01A (VIP)</strong>
+                  </div>
+                </div>
+
+                <div class="pass-barcode-wrap">
+                  <div class="barcode-lines"></div>
+                  <span class="barcode-num">30-12-2026-FABULOUS-FOREVER</span>
+                </div>
+              </div>
+
+              <!-- Разделитель с перфорацией -->
+              <div class="pass-tear-strip">
+                <span class="notch left"></span>
+                <span class="dash-line"></span>
+                <span class="notch right"></span>
+              </div>
+
+              <div class="pass-stub">
+                <button type="button" class="btn-pass-action" id="ticketSaveBtn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                  <span>Добавить событие в календарь (.ics)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Правая часть: детальный тайминг дня -->
+          <div class="timeline-steps reveal-right">
+            <span class="badge-pill">⏰ РАСПИСАНИЕ ПО МИНУТАМ</span>
+            <h2 class="section-title">Как пройдет суббота</h2>
+
+            <div class="steps-flow">
+              <div class="step-item">
+                <div class="step-marker">
+                  <span class="marker-dot"></span>
+                  <span class="marker-time">11:00</span>
+                </div>
+                <div class="step-content">
+                  <h4>Сбор гостей &amp; Welcome Drink</h4>
+                  <p>Встречаемся, обнимаемся, наливаем первое игристое и настраиваемся на самый красивый день.</p>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-marker">
+                  <span class="marker-dot"></span>
+                  <span class="marker-time">11:30</span>
+                </div>
+                <div class="step-content">
+                  <h4>Творческий мастер-класс</h4>
+                  <p>Погружение в процесс, приятная музыка, создание уникальных подарков на память.</p>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-marker">
+                  <span class="marker-dot"></span>
+                  <span class="marker-time">13:30</span>
+                </div>
+                <div class="step-content">
+                  <h4>Фотосессия в студии</h4>
+                  <p>Глянцевый свет, работа с фотографом, шампанское в кадре и съемка совместных рилсов.</p>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-marker">
+                  <span class="marker-dot"></span>
+                  <span class="marker-time">15:30</span>
+                </div>
+                <div class="step-content">
+                  <h4>Праздничный ужин в ресторане</h4>
+                  <p>Вкусная еда, душевные тосты, праздничный торт, бенгальские огни и танцы!</p>
+                </div>
+              </div>
+
+              <div class="step-item">
+                <div class="step-marker">
+                  <span class="marker-dot"></span>
+                  <span class="marker-time">17:00+</span>
+                </div>
+                <div class="step-content">
+                  <h4>Afterparty для самых стойких</h4>
+                  <p>Для тех, кто не захочет расходиться — продолжение вечера в лучших заведениях города ✨</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         WISHLIST SECTION: Список желаний с акцентом
+         ======================================================== -->
+    <section class="wishlist-section" id="wishlist">
+      <div class="section-container">
+        <div class="wishlist-glass-card reveal-up">
+          <div class="wishlist-art" data-parallax="0.07" aria-hidden="true">
+            <div class="floating-gift-box">
+              <span class="gift-emoji-big">🎁</span>
+              <div class="gift-glow-ring"></div>
+            </div>
+            <div class="gift-sparkles">
+              <span>✦</span><span>★</span><span>✨</span>
+            </div>
+          </div>
+
+          <div class="wishlist-content">
+            <span class="badge-pill">💝 О ПОДАРКАХ И ВНИМАНИИ</span>
+            <h2 class="wishlist-title">Лучший подарок — это твое присутствие</h2>
+            <p class="wishlist-lead">
+              Серьезно, самое ценное для меня — это твое время, теплые объятия и искренняя улыбка рядом в этот знаменательный день!
+            </p>
+            <p class="wishlist-sub">
+              Но если ты непременно хочешь порадовать меня чем-то особенным или боишься не угадать — я бережно составила список своих заветных хотелок и приятных мелочей.
+            </p>
+
+            <div class="wishlist-actions">
+              <a href="https://example.com/your-wishlist" class="btn-primary-glow btn-wishlist" target="_blank" rel="noopener noreferrer" id="wishlistLink" data-guard="wishlist">
+                <span>Открыть онлайн-вишлист</span>
+                <span class="btn-arrow" aria-hidden="true">↗</span>
+              </a>
+              <span class="wishlist-note">Либо конверт на мечту / вклад в путешествие ✈️</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         FAQ SECTION: Ответы на частые вопросы (Аккордеон)
+         ======================================================== -->
+    <section class="faq-section" id="faq">
+      <div class="section-container">
+        <div class="section-heading-wrap reveal-up">
+          <span class="badge-pill">💬 ВОПРОСЫ И ОТВЕТЫ</span>
+          <h2 class="section-title">Все, что нужно знать гостям</h2>
+          <p class="section-subtitle">Отвечаю на самые популярные вопросы, чтобы твой день прошел без малейших забот.</p>
+        </div>
+
+        <div class="faq-accordion-wrap reveal-up">
+          <details class="faq-item" open>
+            <summary class="faq-question">
+              <span>Нужно ли что-то брать с собой?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Только отличное настроение, заряженный телефон для сотен фотографий и удобную сменную обувь, если устанешь от каблуков! Все материалы для мастер-класса и угощения уже подготовлены.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Можно ли прийти не к 11:00, а позже?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Очень желательно успеть к началу в 11:00, чтобы не пропустить мастер-класс и велком-шампанское! Но если вдруг не успеваешь — предупреди меня заранее в Telegram, мы скоординируем твое присоединение ко второму или третьему этапу.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Будет ли трансфер между локациями?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Да! Все локации находятся в центре Калуги в пределах 5–10 минут езды. Мы организуем комфортное совместное перемещение, чтобы тебе не пришлось думать о парковках и навигаторах.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Где и когда появятся готовые фото и видео?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="faq-answer">
+              <p>Первые атмосферные рилсы и снепы будут готовы уже вечером в день праздника. А полную профессиональную фотогалерею в высоком качестве я выложу в наш закрытый Telegram-канал в течение недели после события!</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         RSVP SECTION: Интерактивная форма подтверждения с конфетти
+         ======================================================== -->
+    <section class="rsvp-section" id="rsvp">
+      <div class="section-container">
+        <div class="rsvp-card-master reveal-up">
+          <div class="rsvp-header">
+            <span class="badge-pill">💌 RSVP · ТВОЙ ОТВЕТ</span>
+            <h2 class="rsvp-headline">Ты будешь рядом со мной?</h2>
+            <p class="rsvp-sub">
+              Пожалуйста, подтверди свое присутствие до <strong>1 декабря 2026</strong>, чтобы мы успели забронировать все места, заказать подарки и подготовить персональные сюрпризы.
+            </p>
+          </div>
+
+          <!-- Интерактивная форма с выбором опций -->
+          <form class="rsvp-form" id="rsvpForm" novalidate>
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="guestName" class="form-label">Твое прекрасное имя *</label>
+                <input type="text" id="guestName" name="guestName" class="form-input" placeholder="Например: Алина" required autocomplete="name">
+                <span class="form-error" id="nameError">Пожалуйста, напиши имя</span>
+              </div>
+
+              <div class="form-group">
+                <label for="guestContact" class="form-label">Telegram или телефон *</label>
+                <input type="text" id="guestContact" name="guestContact" class="form-input" placeholder="@username или +7..." required>
+                <span class="form-error" id="contactError">Укажи контакт для связи</span>
+              </div>
+            </div>
+
+            <!-- Радио-кнопки подтверждения присутствия -->
+            <div class="form-group">
+              <span class="form-label">Сможешь ли прийти? *</span>
+              <div class="radio-cards-grid">
+                <label class="radio-card">
+                  <input type="radio" name="attendance" value="yes" checked>
+                  <span class="radio-card-body">
+                    <span class="rc-emoji">🥂</span>
+                    <strong>Да, обязательно буду!</strong>
+                    <small>С 11:00 и до самого финала</small>
+                  </span>
+                </label>
+
+                <label class="radio-card">
+                  <input type="radio" name="attendance" value="part">
+                  <span class="radio-card-body">
+                    <span class="rc-emoji">✨</span>
+                    <strong>Буду частично</strong>
+                    <small>Присоединюсь на фото/ужин</small>
+                  </span>
+                </label>
+
+                <label class="radio-card">
+                  <input type="radio" name="attendance" value="no">
+                  <span class="radio-card-body">
+                    <span class="rc-emoji">💔</span>
+                    <strong>К сожалению, не смогу</strong>
+                    <small>Мысленно с тобой и поздравлю</small>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Выбор напитка (приятная интерактивная деталь) -->
+            <div class="form-group">
+              <label for="guestDrink" class="form-label">Твой любимый напиток на праздник</label>
+              <select id="guestDrink" name="guestDrink" class="form-select">
+                <option value="prosecco">Сухое игристое / Просекко 🥂</option>
+                <option value="wine_white">Белое сухое вино 🍷</option>
+                <option value="wine_red">Красное сухое вино 🍷</option>
+                <option value="cocktail">Легкие авторские коктейли 🍸</option>
+                <option value="non_alc">Безалкогольные моктейли / Лимонады 🍹</option>
+              </select>
+            </div>
+
+            <!-- Пожелание или трек в плейлист -->
+            <div class="form-group">
+              <label for="guestNote" class="form-label">Любимый трек для вечеринки или пара теплых слов</label>
+              <textarea id="guestNote" name="guestNote" class="form-textarea" rows="2" placeholder="Напиши трек, под который мы обязаны станцевать..."></textarea>
+            </div>
+
+            <!-- Кнопка отправки с вау-эффектом -->
+            <div class="form-actions">
+              <button type="submit" class="btn-primary-glow btn-submit-rsvp" id="rsvpSubmitBtn">
+                <span class="btn-text">Отправить ответ имениннице 💖</span>
+                <span class="btn-icon" aria-hidden="true">💌</span>
+              </button>
+            </div>
+          </form>
+
+          <!-- Блок успеха после отправки -->
+          <div class="rsvp-success-block" id="rsvpSuccess" hidden>
+            <div class="success-icon-wrap">
+              <span class="success-heart">💖</span>
+            </div>
+            <h3 class="success-title">Ура! Твой ответ отправлен!</h3>
+            <p class="success-desc" id="successCustomMsg">
+              Спасибо, моя хорошая! Я записала твой ответ. Очень жду встречи 12 декабря!
+            </p>
+            <div class="success-actions">
+              <button type="button" class="btn-primary-glow" id="confettiAgainBtn">Запустить салют еще раз 🎉</button>
+              <button type="button" class="btn-secondary-glass" id="resetFormBtn">Изменить ответ</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <a href="#hero" class="brand footer-brand">
+          <span class="brand-badge">30</span>
+          <span class="brand-text">
+            <strong class="brand-title">30 &amp; FABULOUS</strong>
+            <small class="brand-sub">THE PARTY OF THE YEAR</small>
+          </span>
+        </a>
+
+        <div class="footer-links">
+          <a href="#hero">Наверх ↑</a>
+          <a href="#program">Программа</a>
+          <a href="#dresscode">Дресс-код</a>
+          <a href="#timeline">Билет</a>
+          <a href="#rsvp">RSVP</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          © 2026 30 &amp; Fabulous. Сделано с любовью для самых близких людей.
+        </p>
+        <span class="footer-stamp">DECEMBER 12 · KALUGA · ICONIC ERA</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification контейнер -->
+  <div class="toast-notification" id="toastNotification" role="alert" aria-live="polite"></div>
+
+  <!-- Мобильная фиксированная плашка CTA -->
+  <div class="mobile-sticky-cta" id="mobileStickyCta">
+    <a href="#rsvp" class="mobile-cta-btn">
+      <span>💖 Я иду на 30-летие!</span>
+      <span class="m-arrow">→</span>
+    </a>
+  </div>
+
+  <script src="script.js"></script>
 </body>
-
-
 </html>
