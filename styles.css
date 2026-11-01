@@ -2572,3 +2572,58 @@ a, button, summary, input, select, textarea {
   .hero::after, .photo-card-tilt::before, .floating-sticker { animation: none !important; }
   .ui-ripple { display: none !important; }
 }
+
+
+/* MOBILE FIXES — stable program cards and compact generator controls */
+@media (max-width: 760px) {
+  .program-section, .program-section .section-container {
+    width: 100%; max-width: 100%; min-width: 0; overflow-x: clip;
+  }
+  .program-cards-grid {
+    display: grid; grid-template-columns: minmax(0, 1fr);
+    width: 100%; min-width: 0; overflow: visible; gap: 16px;
+  }
+  .program-card {
+    position: relative; display: block; width: 100%; min-width: 0;
+    max-width: 100%; margin: 0; transform: none !important;
+    translate: none !important; opacity: 1 !important;
+  }
+  .program-card.reveal-up { transform: none !important; }
+  .program-banner {
+    position: relative !important; inset: auto !important;
+    display: flex; width: 100%; max-width: 100%; min-width: 0;
+    box-sizing: border-box; margin: 20px 0 0;
+    transform: none !important; translate: none !important;
+    overflow-wrap: anywhere;
+  }
+  .banner-text, .banner-text strong, .banner-text p {
+    min-width: 0; max-width: 100%; overflow-wrap: anywhere;
+  }
+  .look-generator-box {
+    display: grid; width: 100%; max-width: 100%; min-width: 0;
+    grid-template-columns: minmax(0, 1fr); box-sizing: border-box;
+    overflow: hidden;
+  }
+  .gen-left { width: 100%; min-width: 0; align-items: flex-start; }
+  .btn-gen {
+    display: inline-flex !important; width: auto !important;
+    max-width: 100%; min-width: 0; flex: 0 1 auto !important;
+    align-self: flex-start; white-space: normal;
+    padding: 0 18px; box-sizing: border-box;
+  }
+  .btn-gen span { min-width: 0; overflow-wrap: anywhere; }
+}
+
+
+/* Generator button: compact on mobile, never stretch across the viewport */
+@media (max-width: 700px) {
+  .look-generator-section { overflow-x: clip; }
+  .look-generator-section .section-container { min-width: 0; }
+  .look-generator-box { width: 100%; max-width: 100%; box-sizing: border-box; }
+  .look-generator-box .gen-left { min-width: 0; width: 100%; }
+  .look-generator-box .btn-gen {
+    width: auto !important; max-width: 100%; min-width: 0;
+    flex: 0 1 auto !important; align-self: flex-start;
+    white-space: normal; box-sizing: border-box;
+  }
+}

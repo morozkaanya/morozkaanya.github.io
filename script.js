@@ -9,7 +9,7 @@
   const RSVP_ENDPOINT = ''; // optional POST endpoint (Formspree / own API). Empty = save locally.
   const WISHLIST_URL = 'https://example.com/your-wishlist';
   const EVENT_START = new Date('2026-12-12T11:00:00+03:00');
-  const EVENT_END = new Date('2026-12-12T17:00:00+03:00');
+  const EVENT_END = new Date('2026-12-12T16:30:00+03:00');
   const RSVP_DEADLINE = new Date('2026-12-01T23:59:59+03:00');
 
   const $ = (sel, root = document) => root.querySelector(sel);
@@ -332,7 +332,7 @@
     link.click();
     link.remove();
     window.setTimeout(() => URL.revokeObjectURL(url), 2000);
-    showToast('Событие сохранено! 12 декабря, 11:00 — увидимся 🥂', 3800);
+    showToast('Событие сохранено! 12 декабря, 11:00–16:30 — увидимся 🥂', 3800);
     burstConfetti(0.5);
   };
 
