@@ -511,19 +511,43 @@
     if (btnText) btnText.textContent = 'Отправляю...';
 
     try {
-      if (RSVP_ENDPOINT) {
-        await fetch(RSVP_ENDPOINT, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(data),
-        });
-      } else {
-        await new Promise(resolve => window.setTimeout(resolve, 650));
+      const config = window.SUPABASE_CONFIG || {};
+      const supabaseUrl = String(config.url || '').replace(/\/+$/, '');
+      const supabaseKey = String(config.anonKey || '');
+
+      if (!supabaseUrl || !supabaseKey || supabaseUrl.includes('YOUR_PROJECT') || supabaseKey.includes('YOUR_')) {
+        throw new Error('Supabase не настроен. Добавь Project URL и Publishable key в supabase-config.js.');
       }
-      try { localStorage.setItem('bday30-rsvp', JSON.stringify(data)); } catch (_) { /* private mode */ }
-    } catch (_) {
-      /* Network failure shouldn't block the guest — the answer is kept locally. */
-      try { localStorage.setItem('bday30-rsvp', JSON.stringify(data)); } catch (__) { /* ignore */ }
+
+      const response = await fetch(`${supabaseUrl}/rest/v1/guests`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': supabaseKey,
+          'Authorization': `Bearer ${supabaseKey}`,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+          name: data.name,
+          contact: data.contact,
+          attendance: data.attendance,
+          drink: data.drink,
+          note: data.note
+        })
+      });
+
+      if (!response.ok) {
+        const details = await response.text().catch(() => '');
+        throw new Error(`Supabase вернул ошибку ${response.status}. ${details.slice(0, 240)}`);
+      }
+
+      try { localStorage.setItem('bday30-rsvp', JSON.stringify(data)); } catch (_) { /* ignore */ }
+    } catch (error) {
+      console.error('RSVP submit failed:', error);
+      showToast(error.message || 'Не удалось отправить ответ. Попробуй ещё раз или напиши имениннице.', 6000);
+      if (submitBtn) submitBtn.disabled = false;
+      if (btnText && originalText) btnText.textContent = originalText;
+      return;
     }
 
     const messages = {
