@@ -4,6 +4,6 @@
  * Никогда не вставляй сюда Secret key / service_role key.
  */
 window.SUPABASE_CONFIG = {
-  url: 'YOUR_PROJECT_URL',
-  anonKey: 'YOUR_SUPABASE_PUBLISHABLE_KEY'
+  url: 'https://plwkpwemdeenvojajjbw.supabase.co/rest/v1/',
+  anonKey: 'sb_publishable_4hc8JebeWH7eTLdWBVsDcQ_gw_TEs48'
 };
